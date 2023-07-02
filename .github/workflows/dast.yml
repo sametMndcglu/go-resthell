@@ -21,19 +21,7 @@ jobs:
     - name: Build and run API server
       run: |
         export LOCAL=true && go run cmd/main.go &
-
-    - name: Install OWASP ZAP
-      run: |
-        wget -q https://github.com/zaproxy/zaproxy/releases/latest/download/ZAP_WEEKLY_D-2023-06-26.zip
-        unzip ZAP_WEEKLY_D-2023-06-26.zip
-        export PATH=$PWD/ZAP_D-2023-06-26:$PATH
-
-    - name: Run DAST
-      run: |
-        zap-api-scan.py -t http://localhost:18080/api/cmd -r dast-report.html
-
-    - name: Upload DAST report
-      uses: actions/upload-artifact@v2
+    - name: ZAP Scan
+      uses: zaproxy/action-api-scan@v0.3.0
       with:
-        name: dast-report
-        path: dast-report.html
+        target: 'http://localhost:18080/api/cmd'
