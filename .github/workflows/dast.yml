@@ -31,7 +31,7 @@ jobs:
 
     - name: Run DAST
       run: |
-        ./ZAP_D-2023-06-28/zap.sh -t http://localhost:18080/api/cmd -r dast-report.html
+        ./ZAP_D-2023-06-28/zap.sh -daemon -t http://localhost:18080/api/cmd -r dast-report.html
 
 
     - name: Upload DAST report
