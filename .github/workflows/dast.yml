@@ -20,8 +20,15 @@ jobs:
 
     - name: Build and run API server
       run: |
-        export LOCAL=true && go run cmd/main.go &
+        export LOCAL=true
+        go run cmd/main.go &
     - name: ZAP Scan
       uses: zaproxy/action-api-scan@v0.3.0
       with:
         target: 'http://localhost:18080/api/cmd'
+
+    - name: Upload DAST report
+      uses: actions/upload-artifact@v2
+      with:
+        name: dast-report
+        path: report_html.html
