@@ -31,7 +31,7 @@ jobs:
 
     - name: Run DAST
       run: |
-        zap-api-scan.py -t http://localhost:18080/api/cmd -r dast-report.html
+        zap.sh -t http://localhost:18080/api/cmd -r dast-report.html
 
 
     - name: Upload DAST report
