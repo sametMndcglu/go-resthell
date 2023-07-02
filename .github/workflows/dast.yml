@@ -25,9 +25,9 @@ jobs:
 
     - name: Install OWASP ZAP
       run: |
-        wget -q https://github.com/zaproxy/zaproxy/releases/latest/download/ZAP_WEEKLY_D-2023-06-26.zip
-        unzip ZAP_WEEKLY_D-2023-06-26.zip
-        export PATH=$PWD/ZAP_D-2023-06-26:$PATH
+        wget -q https://github.com/zaproxy/zaproxy/releases/download/w2023-06-28/ZAP_WEEKLY_D-2023-06-28.zip
+        unzip ZAP_WEEKLY_D-2023-06-28.zip
+        export PATH=$PWD/ZAP_D-2023-06-28:$PATH
 
     - name: Run DAST
       run: |
